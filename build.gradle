@@ -1,0 +1,51 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'idea'
+apply plugin: 'war'
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.1.5'
+
+    compile "org.apache.xmlgraphics:batik-transcoder:1.7"
+    compile "org.apache.xmlgraphics:batik-codec:1.7"
+
+    compile 'org.slf4j:slf4j-api:1.7.5'
+    compile 'org.slf4j:jul-to-slf4j:1.7.5'
+    compile 'ch.qos.logback:logback-classic:1.0.13'
+
+    providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
+
+    testCompile "org.codehaus.groovy.modules.http-builder:http-builder:0.5.2"
+    testCompile "junit:junit:4.11"
+}
+
+task makeDirs(description: 'make all dirs for project setup') << {
+    def sources = [sourceSets.main, sourceSets.test]
+    sources*.allSource*.srcDirs.flatten().each { File srcDir ->
+        println "making $srcDir"
+        srcDir.mkdirs()
+    }
+}
+
+idea {
+    module {
+        downloadJavadoc = true
+
+        downloadSources = true
+    }
+}
+
+/*
+testClasses.doFirst{
+	println "Test classpath is: "
+	sourceSets.test.runtimeClasspath.getFiles().each{file->
+			print "file: \"" + file + "\""
+	}
+}*/

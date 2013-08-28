@@ -1,0 +1,39 @@
+== SVG to PNG/JPEG converter for Sencha's Charting
+:icons: font
+
+Example application demonstrates usage of custom servlet to export ExtJS charts to PNG or JPEG formats.
+
+=== Used technologies ===
+
+- http://tomcat.apache.org/download-70.cgi[Apache Tomcat 7.0.42], Servlet 3.0
+- http://www.sencha.com/products/extjs[Sencha ExtJS 4.2]
+- http://www.gradle.org/[Gradle]
+
+=== How to build
+
+==== Java
+
+[source, shell]
+----------------------------------------------------------------------
+./gradlew clean build
+----------------------------------------------------------------------
+
+=== How to run
+
+- build the application
+- download apache tomcat 
+- unpack tomcat in any directory
+- go to +apache-tomcat-7.0.42/bin+ start server with command
++
+
+[source, shell]
+----------------------------------------------------------------------
+chmod +x startup.sh 
+chmod +x catalina.sh 
+./startup.sh
+----------------------------------------------------------------------
+
+- grab war file from +build\lib+ directory and drop it to +apache-tomcat-7.0.42/webapps+ directory
+
+
+
