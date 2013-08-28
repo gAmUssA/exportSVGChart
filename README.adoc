@@ -3,6 +3,8 @@
 
 Example application demonstrates usage of custom servlet to export ExtJS charts to PNG or JPEG formats.
 
+image::screenshot.png[align="center"]
+
 === Used technologies ===
 
 - http://tomcat.apache.org/download-70.cgi[Apache Tomcat 7.0.42], Servlet 3.0
